@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="thirdparty/cropper/css/bootstrap.min.css">
   <link rel="stylesheet" href="thirdparty/cropper/css/cropper.css">
   <link rel="stylesheet" href="thirdparty/cropper/css/main.css">
+  <link rel="stylesheet" href="css/mui.min.css" />
 </head>
 <body>
   <!--[if lt IE 9]>
@@ -378,12 +379,7 @@
               16:9
             </span>
           </label>
-          <label class="btn btn-primary">
-            <input type="radio" class="sr-only" id="aspectRatio1" name="aspectRatio" value="1.3333333333333333">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="aspectRatio: 4 / 3">
-              4:3
-            </span>
-          </label>
+         
           <label class="btn btn-primary">
             <input type="radio" class="sr-only" id="aspectRatio2" name="aspectRatio" value="1">
             <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="aspectRatio: 1 / 1">
@@ -396,12 +392,7 @@
               2:3
             </span>
           </label>
-          <label class="btn btn-primary">
-            <input type="radio" class="sr-only" id="aspectRatio4" name="aspectRatio" value="NaN">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="aspectRatio: NaN">
-              Free
-            </span>
-          </label>
+          
         </div>
 
         <div class="btn-group d-flex flex-nowrap" data-toggle="buttons">
@@ -411,173 +402,22 @@
               VM0
             </span>
           </label>
-          <label class="btn btn-primary">
-            <input type="radio" class="sr-only" id="viewMode1" name="viewMode" value="1">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="View Mode 1">
-              VM1
-            </span>
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" class="sr-only" id="viewMode2" name="viewMode" value="2">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="View Mode 2">
-              VM2
-            </span>
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" class="sr-only" id="viewMode3" name="viewMode" value="3">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="View Mode 3">
-              VM3
-            </span>
-          </label>
+         
         </div>
 
-        <div class="dropdown dropup docs-options">
-          <button type="button" class="btn btn-primary btn-block dropdown-toggle" id="toggleOptions" data-toggle="dropdown" aria-expanded="true">
-            Toggle Options
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="toggleOptions" role="menu">
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="responsive" type="checkbox" name="responsive" checked>
-                <label class="form-check-label" for="responsive">responsive</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="restore" type="checkbox" name="restore" checked>
-                <label class="form-check-label" for="restore">restore</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="checkCrossOrigin" type="checkbox" name="checkCrossOrigin" checked>
-                <label class="form-check-label" for="checkCrossOrigin">checkCrossOrigin</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="checkOrientation" type="checkbox" name="checkOrientation" checked>
-                <label class="form-check-label" for="checkOrientation">checkOrientation</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="modal" type="checkbox" name="modal" checked>
-                <label class="form-check-label" for="modal">modal</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="guides" type="checkbox" name="guides" checked>
-                <label class="form-check-label" for="guides">guides</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="center" type="checkbox" name="center" checked>
-                <label class="form-check-label" for="center">center</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="highlight" type="checkbox" name="highlight" checked>
-                <label class="form-check-label" for="highlight">highlight</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="background" type="checkbox" name="background" checked>
-                <label class="form-check-label" for="background">background</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="autoCrop" type="checkbox" name="autoCrop" checked>
-                <label class="form-check-label" for="autoCrop">autoCrop</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="movable" type="checkbox" name="movable" checked>
-                <label class="form-check-label" for="movable">movable</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="rotatable" type="checkbox" name="rotatable" checked>
-                <label class="form-check-label" for="rotatable">rotatable</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="scalable" type="checkbox" name="scalable" checked>
-                <label class="form-check-label" for="scalable">scalable</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="zoomable" type="checkbox" name="zoomable" checked>
-                <label class="form-check-label" for="zoomable">zoomable</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="zoomOnTouch" type="checkbox" name="zoomOnTouch" checked>
-                <label class="form-check-label" for="zoomOnTouch">zoomOnTouch</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="zoomOnWheel" type="checkbox" name="zoomOnWheel" checked>
-                <label class="form-check-label" for="zoomOnWheel">zoomOnWheel</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="cropBoxMovable" type="checkbox" name="cropBoxMovable" checked>
-                <label class="form-check-label" for="cropBoxMovable">cropBoxMovable</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="cropBoxResizable" type="checkbox" name="cropBoxResizable" checked>
-                <label class="form-check-label" for="cropBoxResizable">cropBoxResizable</label>
-              </div>
-            </li>
-            <li class="dropdown-item">
-              <div class="form-check">
-                <input class="form-check-input" id="toggleDragModeOnDblclick" type="checkbox" name="toggleDragModeOnDblclick" checked>
-                <label class="form-check-label" for="toggleDragModeOnDblclick">toggleDragModeOnDblclick</label>
-              </div>
-            </li>
-          </ul>
-        </div><!-- /.dropdown -->
-
-        <a class="btn btn-success btn-block" data-toggle="tooltip" data-animation="false" href="https://fengyuanchen.github.io/cropperjs" title="The non-jQuery version of Cropper (recommended)">Cropper.js</a>
+        
 
       </div><!-- /.docs-toggles -->
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p class="heart"></p>
-      <nav class="nav flex-wrap justify-content-center mb-3">
-        <a class="nav-link" href="https://github.com/fengyuanchen/cropper">GitHub</a>
-        <a class="nav-link" href="https://github.com/fengyuanchen/cropper/blob/master/LICENSE">License</a>
-        <a class="nav-link" href="http://chenfengyuan.com">About</a>
-        <a class="nav-link" href="v2.3.4">v2.3.4</a>
-        <a class="nav-link" href="v3.1.6">v3.1.6</a>
-      </nav>
-    </div>
-  </footer>
+  
 
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
   <script src="thirdparty/cropper/js/cropper.js"></script>
   <script src="thirdparty/cropper/js/main.js"></script>
+  
 </body>
 </html>

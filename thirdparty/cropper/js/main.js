@@ -78,6 +78,7 @@ $(function () {
 
   // Options
   $('.docs-toggles').on('change', 'input', function () {
+  	console.log(">>>>>>>>>>>input变值了.........");
     var $this = $(this);
     var name = $this.attr('name');
     var type = $this.prop('type');
