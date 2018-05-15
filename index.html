@@ -113,7 +113,7 @@
 						<div class="btn-group btn-group-crop">
 							<button type="button" class="btn btn-success" data-method="getCroppedCanvas" data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
             <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="$().cropper(&quot;getCroppedCanvas&quot;, { maxWidth: 4096, maxHeight: 4096 })">
-              Get Cropped Canvas
+              裁剪
             </span>
           </button>
 							<button type="button" class="btn btn-success" data-method="getCroppedCanvas" data-option="{ &quot;width&quot;: 160, &quot;height&quot;: 90 }">
@@ -133,15 +133,15 @@
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="getCroppedCanvasTitle">Cropped</h5>
+										<h5 class="modal-title" id="getCroppedCanvasTitle">确认裁剪</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
 									</div>
 									<div class="modal-body"></div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">Download</a>
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+										<a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">确认</a>
 									</div>
 								</div>
 							</div>
@@ -178,14 +178,17 @@
 		<script type="text/javascript" src="js/mui.min.js"></script>
 		<script>
 			mui.plusReady(function() {
-				document.getElementById("gallery").addEventListener("tap",function(){
+				document.getElementById("gallery").addEventListener("tap", function() {
 					galleryImg("1111111111");
 				});
-				
+				document.getElementById("camera").addEventListener("tap", function() {
+					getImage();
+				});
 			});
+
 			function galleryImg(divid) {
 				plus.gallery.pick(function(path) {
-					console.log("path="+path)
+					console.log("path=" + path)
 					plus.io.resolveLocalFileSystemURL(path, function(entry) {
 						//compressImage(entry.toLocalURL(), entry.name, divid);
 						reloadImage(entry.toLocalURL());
@@ -197,6 +200,24 @@
 				}, function(e) {}, {
 					filename: "_doc/camera/",
 					filter: "image"
+				});
+			}
+
+			//拍照 
+			function getImage() {
+				var cmr = plus.camera.getCamera();
+				var res = cmr.supportedImageResolutions[0];
+				var fmt = cmr.supportedImageFormats[0];
+				cmr.captureImage(function(path) {
+					//plus.io.resolveLocalFileSystemURL(path, function(entry) {   
+					plus.io.resolveLocalFileSystemURL(path, function(entry) {
+						var localUrl = entry.toLocalURL();
+						reloadImage(localUrl + "?version=" + new Date().getTime());
+					}, function(err) {
+						console.error("拍照失败：" + err.message);
+					}, {
+						index: 1
+					});
 				});
 			}
 		</script>

@@ -180,6 +180,7 @@ $(function() {
 				case 'getCroppedCanvas':
 					if(result) {
 						// Bootstrap's Modal
+						console.log(">>>>>>>"+result)
 						$('#getCroppedCanvasModal').modal().find('.modal-body').html(result);
 
 						if(!$download.hasClass('disabled')) {
