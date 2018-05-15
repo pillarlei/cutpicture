@@ -13,6 +13,12 @@
 		<link rel="stylesheet" href="thirdparty/cropper/css/cropper.css">
 		<link rel="stylesheet" href="thirdparty/cropper/css/main.css">
 		<link rel="stylesheet" href="css/mui.min.css" />
+		<style type="text/css">
+			.mui-btn {
+				width: 30%;
+				size: 24px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -36,7 +42,7 @@
 			<div class="container">
 
 				<div class="row">
-	
+
 					<div class="col-md-3">
 						<!-- <h3>Preview:</h3> -->
 						<div class="docs-preview clearfix">
@@ -47,7 +53,7 @@
 						</div>
 
 					</div>
-									<div class="col-md-9">
+					<div class="col-md-9">
 						<!-- <h3>Demo:</h3> -->
 						<div class="img-container">
 							<img id="image" src="images/picture.jpg" alt="Picture">
@@ -217,48 +223,14 @@
 						<!-- /.modal -->
 
 					</div>
-					<!-- /.docs-buttons -->
 
-					<div class="col-md-3 docs-toggles">
-						<!-- <h3>Toggles:</h3> -->
-						<div class="btn-group d-flex flex-nowrap" data-toggle="buttons">
-							<label class="btn btn-primary active">
-            <input type="radio" class="sr-only" id="aspectRatio0" name="aspectRatio" value="1.7777777777777777">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="aspectRatio: 16 / 9">
-              16:9
-            </span>
-          </label>
-
-							<label class="btn btn-primary">
-            <input type="radio" class="sr-only" id="aspectRatio2" name="aspectRatio" value="1">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="aspectRatio: 1 / 1">
-              1:1
-            </span>
-          </label>
-							<label class="btn btn-primary">
-            <input type="radio" class="sr-only" id="aspectRatio3" name="aspectRatio" value="0.6666666666666666">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="aspectRatio: 2 / 3">
-              2:3
-            </span>
-          </label>
-
-						</div>
-
-						<div class="btn-group d-flex flex-nowrap" data-toggle="buttons">
-							<label class="btn btn-primary active">
-            <input type="radio" class="sr-only" id="viewMode0" name="viewMode" value="0" checked>
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="View Mode 0">
-              VM0
-            </span>
-          </label>
-
-						</div>
-
-					</div>
-					<!-- /.docs-toggles -->
 				</div>
 			</div>
-
+			<div style="text-align: center;">
+				<button type="button" class="mui-btn  mui-btn-primary " data="1.7777777777777777">16:9</button>
+				<button type="button" class="mui-btn  mui-btn-success" data="1">1:1</button>
+				<button type="button" class="mui-btn mui-btn-warning" data="0.6666666666666666">2:3</button>
+			</div>
 			<input type="hidden" class="form-control" id="dataX" placeholder="x">
 
 			<input type="hidden" class="form-control" id="dataY" placeholder="y">
@@ -273,6 +245,7 @@
 
 			<input type="hidden" class="form-control" id="dataScaleY" placeholder="scaleY">
 
+			<input type="hidden" id="viewMode0" name="viewMode" value="0" />
 		</div>
 		<!-- Scripts -->
 
@@ -280,7 +253,10 @@
 		<script src="thirdparty/cropper/js/bootstrap.bundle.min.js"></script>
 		<script src="thirdparty/cropper/js/cropper.js"></script>
 		<script src="thirdparty/cropper/js/main.js"></script>
-		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script>
+			
+		</script>
 	</body>
 
 </html>
