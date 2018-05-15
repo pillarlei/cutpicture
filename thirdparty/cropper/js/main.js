@@ -1,3 +1,4 @@
+
 $(function() {
 
 	'use strict';
@@ -101,12 +102,12 @@ $(function() {
 
 		$image.cropper('destroy').cropper(options);
 	});
-/***
- * 因为mui.min.js的冲突，重新定义
- */
+	/***
+	 * 因为mui.min.js的冲突，
+	 */
 	$(".mui-btn").click(function() {
 		var $this = $(this);
-		console.log(">>>>>>>>>>>>="+$this.attr("data"));
+		console.log(">>>>>>>>>>>>=" + $this.attr("data"));
 		options["aspectRatio"] = $this.attr('data');
 		$image.cropper('destroy').cropper(options);
 	});
@@ -275,5 +276,11 @@ $(function() {
 	} else {
 		$inputImage.prop('disabled', true).parent().addClass('disabled');
 	}
-
+	/***
+	 * 重新装在图片
+	 */
+	window.reloadImage=function reloadImage(imageURL){
+		console.log(">>>>>>>重新装载reloadImage");
+		$image.cropper('destroy').attr('src', imageURL).cropper(options);
+	}
 });
