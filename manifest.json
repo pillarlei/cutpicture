@@ -125,5 +125,35 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [],
+				"refer": [
+					"thirdparty/cropper/cropper.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"thirdparty/cropper/js/jquery-3.3.1.slim.min.js",
+				"images/picture.jpg",
+				"fonts/mui.ttf",
+				"thirdparty/cropper/css/font-awesome.min.css",
+				"thirdparty/cropper/css/bootstrap.min.css",
+				"thirdparty/cropper/js/cropper.js",
+				"default.html",
+				"thirdparty/cropper/css/main.css",
+				"thirdparty/cropper/js/main.js",
+				"thirdparty/cropper/css/cropper.min.css",
+				"js/mui.min.js",
+				"thirdparty/cropper/css/cropper.css",
+				"css/mui.min.css",
+				"thirdparty/cropper/js/bootstrap.bundle.min.js",
+				"readme.md"
+			]
+		}
 	}
 }

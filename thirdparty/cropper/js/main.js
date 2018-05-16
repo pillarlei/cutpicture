@@ -1,4 +1,3 @@
-
 $(function() {
 
 	'use strict';
@@ -8,7 +7,7 @@ $(function() {
 	};
 	var URL = window.URL || window.webkitURL;
 	var $image = $('#image');
-	var $download = $('#download');//确认裁剪
+	var $download = $('#download'); //确认裁剪
 	var $dataX = $('#dataX');
 	var $dataY = $('#dataY');
 	var $dataHeight = $('#dataHeight');
@@ -18,7 +17,7 @@ $(function() {
 	var $dataScaleY = $('#dataScaleY');
 	var options = {
 		aspectRatio: 16 / 9,
-		preview: '.img-preview',
+		//preview: '.img-preview',
 		crop: function(e) {
 			$dataX.val(Math.round(e.detail.x));
 			$dataY.val(Math.round(e.detail.y));
@@ -75,44 +74,6 @@ $(function() {
 		$download.addClass('disabled');
 	}
 
-	// Options
-	$('.docs-toggles').on('change', 'input', function() {
-		console.log(">>>>>>>>>>>input变值了.........");
-		var $this = $(this);
-		var name = $this.attr('name');
-		var type = $this.prop('type');
-		var cropBoxData;
-		var canvasData;
-
-		if(!$image.data('cropper')) {
-			return;
-		}
-
-		if(type === 'checkbox') {
-			options[name] = $this.prop('checked');
-			cropBoxData = $image.cropper('getCropBoxData');
-			canvasData = $image.cropper('getCanvasData');
-
-			options.ready = function() {
-				$image.cropper('setCropBoxData', cropBoxData);
-				$image.cropper('setCanvasData', canvasData);
-			};
-		} else if(type === 'radio') {
-			options[name] = $this.val();
-		}
-
-		$image.cropper('destroy').cropper(options);
-	});
-	/***
-	 * 因为mui.min.js的冲突，
-	 */
-	$(".mui-btn").click(function() {
-		var $this = $(this);
-		
-		options["aspectRatio"] = $this.attr('data');
-		$image.cropper('destroy').cropper(options);
-	});
-
 	// Methods
 	$('.docs-buttons').on('click', '[data-method]', function() {
 		var $this = $(this);
@@ -152,7 +113,7 @@ $(function() {
 
 					break;
 
-				case 'getCroppedCanvas'://裁剪
+				case 'getCroppedCanvas': //裁剪
 					if(uploadedImageType === 'image/jpeg') {
 						if(!data.option) {
 							data.option = {};
@@ -182,10 +143,8 @@ $(function() {
 				case 'getCroppedCanvas':
 					if(result) {
 						// Bootstrap's Modal
-						console.log(">>>>>>>result="+result);
-						var imgUrl = result.toDataURL("image/jpeg", 1);
-						console.log(imgUrl);
 						
+
 						$('#getCroppedCanvasModal').modal().find('.modal-body').html(result);
 
 						if(!$download.hasClass('disabled')) {
@@ -282,17 +241,51 @@ $(function() {
 	} else {
 		$inputImage.prop('disabled', true).parent().addClass('disabled');
 	}
+
 	/***
-	 * 重新装在图片
+	 * 因为mui.min.js的冲突，
 	 */
-	window.reloadImage=function reloadImage(imageURL){
-		console.log(">>>>>>>重新装载reloadImage");
+	$(".mui-btn").click(function() {
+		var $this = $(this);
+
+		options["aspectRatio"] = $this.attr('data');
+		$image.cropper('destroy').cropper(options);
+	});
+
+	/***
+	 *  重新装载图片
+	 * @param {String} imageURL
+	 * @param {Object} options
+	 */
+	window.reloadImage = function reloadImage(imageURL) {
 		$image.cropper('destroy').attr('src', imageURL).cropper(options);
+	}
+	/***
+	 * 截图框的比例
+	 * @param {String} rate
+	 */
+	window.setRate = function setRate(rate) {
+		if(rate == undefined) rate = 1;
+		switch(rate) {
+			case 1:
+				options["aspectRatio"] = "1.7777777777777777"; //16:0
+				break;
+			case 2:
+				options["aspectRatio"] = "1"; //1:1
+				break;
+			case 3:
+				options["aspectRatio"] = "0.6666666666666666"; //2:3
+				break;
+			default:
+				options["aspectRatio"] = "NAN"; //2:3
+		}
 	}
 	/***
 	 * 获取确认后的base64图片
 	 */
-	window.getCropperBase64Image=function getCropperBase64Image(){
-		
+	window.getCropperBase64Image = function getCropperBase64Image() {
+		var imgUrl = result.toDataURL("image/jpeg", 1);
+		return imgUrl;
 	}
+
 });
