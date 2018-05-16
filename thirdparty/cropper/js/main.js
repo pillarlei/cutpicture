@@ -8,7 +8,7 @@ $(function() {
 	};
 	var URL = window.URL || window.webkitURL;
 	var $image = $('#image');
-	var $download = $('#download');
+	var $download = $('#download');//确认裁剪
 	var $dataX = $('#dataX');
 	var $dataY = $('#dataY');
 	var $dataHeight = $('#dataHeight');
@@ -29,6 +29,7 @@ $(function() {
 			$dataScaleY.val(e.detail.scaleY);
 		}
 	};
+	//原来的图片路径
 	var originalImageURL = $image.attr('src');
 	var uploadedImageName = 'cropped.jpg';
 	var uploadedImageType = 'image/jpeg';
@@ -107,7 +108,7 @@ $(function() {
 	 */
 	$(".mui-btn").click(function() {
 		var $this = $(this);
-		console.log(">>>>>>>>>>>>=" + $this.attr("data"));
+		
 		options["aspectRatio"] = $this.attr('data');
 		$image.cropper('destroy').cropper(options);
 	});
@@ -117,6 +118,7 @@ $(function() {
 		var $this = $(this);
 		var data = $this.data();
 		var cropper = $image.data('cropper');
+
 		var cropped;
 		var $target;
 		var result;
@@ -150,7 +152,7 @@ $(function() {
 
 					break;
 
-				case 'getCroppedCanvas':
+				case 'getCroppedCanvas'://裁剪
 					if(uploadedImageType === 'image/jpeg') {
 						if(!data.option) {
 							data.option = {};
@@ -180,12 +182,15 @@ $(function() {
 				case 'getCroppedCanvas':
 					if(result) {
 						// Bootstrap's Modal
-						console.log(">>>>>>>"+result)
+						console.log(">>>>>>>result="+result);
+						var imgUrl = result.toDataURL("image/jpeg", 1);
+						console.log(imgUrl);
+						
 						$('#getCroppedCanvasModal').modal().find('.modal-body').html(result);
 
 						if(!$download.hasClass('disabled')) {
 							download.download = uploadedImageName;
-							$download.attr('href', result.toDataURL(uploadedImageType));
+							//$download.attr('href', result.toDataURL(uploadedImageType));
 						}
 					}
 
@@ -283,5 +288,11 @@ $(function() {
 	window.reloadImage=function reloadImage(imageURL){
 		console.log(">>>>>>>重新装载reloadImage");
 		$image.cropper('destroy').attr('src', imageURL).cropper(options);
+	}
+	/***
+	 * 获取确认后的base64图片
+	 */
+	window.getCropperBase64Image=function getCropperBase64Image(){
+		
 	}
 });
