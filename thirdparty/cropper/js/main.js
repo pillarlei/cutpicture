@@ -70,9 +70,9 @@ $(function() {
 	}
 
 	// Download
-	if(typeof $download[0].download === 'undefined') {
-		$download.addClass('disabled');
-	}
+//	if(typeof $download[0].download === 'undefined') {
+//		$download.addClass('disabled');
+//	}
 
 	// Methods
 	var result;
@@ -286,6 +286,7 @@ $(function() {
 	 * 获取确认后的base64图片
 	 */
 	window.getCropperBase64Image = function getCropperBase64Image() {
+		console.log("获取确认后的base64图片");
 		var imgUrl = result.toDataURL("image/jpeg", 1);
 		return imgUrl;
 	}
