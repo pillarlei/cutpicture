@@ -54,6 +54,15 @@
 				document.getElementById("camera").addEventListener("tap", function() {
 					getImage();
 				});
+
+				/***
+				 * 其他页面打开传递参数
+				 */
+				window.addEventListener("getCutpicture", function(event) {
+					var imageBase64 = event.detail.imageBase64;
+					console.log("终极返回>>>>>>>>>>>>>>>imageBase64\n"+imageBase64);
+
+				});
 			});
 
 			function galleryImg() {
@@ -66,7 +75,7 @@
 							imageUrl: path
 
 						});
-						cropper.show("slide-in-right", 200);
+						cropper.show("slide-in-right", 300);
 					}, function(e) {
 						plus.nativeUI.toast("读取拍照文件错误：" + e.message);
 					});

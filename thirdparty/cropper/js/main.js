@@ -75,6 +75,7 @@ $(function() {
 	}
 
 	// Methods
+	var result;
 	$('.docs-buttons').on('click', '[data-method]', function() {
 		var $this = $(this);
 		var data = $this.data();
@@ -82,7 +83,7 @@ $(function() {
 
 		var cropped;
 		var $target;
-		var result;
+		
 
 		if($this.prop('disabled') || $this.hasClass('disabled')) {
 			return;
@@ -114,6 +115,7 @@ $(function() {
 					break;
 
 				case 'getCroppedCanvas': //裁剪
+				console.log(">>>>>>>>点击裁剪按钮啦..........");
 					if(uploadedImageType === 'image/jpeg') {
 						if(!data.option) {
 							data.option = {};
